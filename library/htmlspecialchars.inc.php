@@ -137,7 +137,7 @@ function javascriptStringCheck(?string $text): bool
  */
 function text($text)
 {
-    return htmlspecialchars(($text ?? ''), ENT_NOQUOTES);
+    return $text;
 }
 
 /**

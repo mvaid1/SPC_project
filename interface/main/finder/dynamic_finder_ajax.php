@@ -43,14 +43,12 @@ if ($searchAny) {
     $layoutCols = sqlStatement(
         "SELECT field_id FROM layout_options WHERE form_id = 'DEM'
             AND field_id not like ? AND field_id not like ? AND uor !=0",
-        array('em\_%', 'add%')
+        array('em\_%')
     );
     for ($iter = 0; $row = sqlFetchArray($layoutCols); $iter++) {
         $aColumns[] = $row['field_id'];
     }
-} else {
-    $aColumns = explode(',', $_GET['sColumns']);
-}
+} 
 // Paging parameters.  -1 means not applicable.
 //
 $iDisplayStart  = isset($_GET['iDisplayStart' ]) ? 0 + $_GET['iDisplayStart' ] : -1;
